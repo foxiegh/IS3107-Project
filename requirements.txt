@@ -1,7 +1,7 @@
 streamlit
 pandas
 numpy
-geopy.distance
+geopy
 altair
 requests
 json
