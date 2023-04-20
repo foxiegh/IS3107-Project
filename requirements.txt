@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+geopy
+altair
+requests
+json
+seaborn
+matplotlib
+datetime
+random
