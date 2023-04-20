@@ -172,7 +172,7 @@ elif page == "Predict HDB Pricing (Resale)":
         for index, row in mrt_names_data.iterrows():
             mrt_code = row[0]
             mrt_name = row[1]
-            if mrt_code == nearest_mrt:
+            if mrt_code == closest_mrt:
                 closest_mrt_name = mrt_name
         st.write(f'Closest MRT: {closest_mrt} {closest_mrt_name}')
         st.write(f'Distance to nearest MRT: {round(least_dist, 2)}km')
