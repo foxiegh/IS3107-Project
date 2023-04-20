@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import requests
-import json
 from geopy.distance import geodesic as GD
 import seaborn as sns
 import matplotlib.pyplot as plt
