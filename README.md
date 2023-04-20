@@ -13,3 +13,5 @@ Predicting HDB Resale Prices/HDB Under Construction Prices
 Our datasets are obtained from data.gov.sg but include additional columns processed before-hand.
 Our ML Model was trained and uploaded as well.
 This repository is simply to deploy a frontend application onto Streamlit for data visualisation as well as users to predict HDB Pricings.
+
+https://foxiegh-is3107-project-main-77fw7e.streamlit.app/
