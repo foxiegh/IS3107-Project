@@ -5,6 +5,8 @@ import json
 import torch
 import torch.nn as nn
 from sklearn.preprocessing import MinMaxScaler
+from io import BytesIO
+import requests
 
 from warnings import simplefilter
 simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
@@ -42,7 +44,7 @@ construction_num_cols = ['flat_type', 'floor_area_sqm','remaining_lease', 'store
 construction_normalizer = dict()
 
 for i in construction_num_cols:
-    norm = joblib.load(file_dir + '/' + i + '-construction-normalizer-scaler.save') 
+    norm = joblib.load(BytesIO(requests.get(file_dir + '/' + i + '-construction-normalizer-scaler.save').content)) 
     construction_normalizer[file_dir + '/' + i + '-construction-normalizer-scaler.save'] = norm
 
 construction_model = NumericalPredictionConstruction(a2=32, c=16)

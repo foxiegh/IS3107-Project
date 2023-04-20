@@ -5,8 +5,9 @@ import json
 import torch
 import torch.nn as nn
 from sklearn.preprocessing import MinMaxScaler
-
+import requests
 from warnings import simplefilter
+from io import BytesIO
 simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 
 class NumericalPredictionResale(nn.Module):
@@ -41,7 +42,7 @@ resale_num_cols = ['flat_type', 'floor_area_sqm','remaining_lease', 'storey_rang
 resale_normalizer = dict()
 
 for i in resale_num_cols:
-    norm = joblib.load(file_dir + '/' + i + '-resale-normalizer-scaler.save') 
+    norm = joblib.load(BytesIO(requests.get(file_dir + '/' + i + '-resale-normalizer-scaler.save').content)) 
     resale_normalizer[file_dir + '/' + i + '-resale-normalizer-scaler.save'] = norm
 
 resale_model = NumericalPredictionResale(a2=32, c=16)
