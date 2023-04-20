@@ -16,8 +16,8 @@ from resale import predict_resale as pred_res
 import random
 import json
 
-ddir = r"C:\Uni\Y2Sem2\IS3107\Project" #Replace with your directory
-ml_pred = f'{ddir}\ML-prediction' 
+ddir = f'https://github.com/foxiegh/IS3107-Project/tree/main' #Replace with your directory
+ml_pred = f'{ddir}/ML-prediction' 
 
 
 @st.cache_data
