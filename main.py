@@ -14,6 +14,7 @@ from datetime import date
 from construction import predict_construction as pred_const
 from resale import predict_resale as pred_res
 import random
+import json
 
 ddir = r"C:\Uni\Y2Sem2\IS3107\Project" #Replace with your directory
 ml_pred = f'{ddir}\ML-prediction' 
@@ -89,7 +90,7 @@ page = st.sidebar.radio("Pages", ["Dataset Exploration", "Explore Historical Dat
 if page == "Dataset Exploration":
     data_exploration(data)
 elif page == "Explore Historical Data":
-    choose_x = st.selectbox("Select x-variable", ["town", "floor_area_sqm", "grouped_by_distance_to_nearest_mrt"])
+    choose_x = st.selectbox("Select x-variable", ["town", "floor_area_sqm", "grouped_by_distance_to_nearest_mrt", "flat_model", "flat_type"])
     choose_y = st.selectbox("Select y-variable", ["resale_price"])
     if choose_x == "grouped_by_distance_to_nearest_mrt":
         for_vis = [[], [], [], []]
@@ -134,7 +135,7 @@ elif page == "Predict HDB Pricing (Resale)":
     flat_type = types.index(flat_type) + 1
     flat_model = st.selectbox("Select Flat Model", models)
     floor_area_sqm = st.number_input("Select Floor Area", min_value = 0.0, max_value=300.0 , value = 52.23)
-    remaining_lease = st.number_input("Remaining Lease", min_value = 0, max_value = 99, value = 99)
+    remaining_lease = st.number_input("Remaining Lease", min_value = 0, max_value = 99, value = 99) * 12
     storeys = ['01 TO 03', '04 TO 06', '07 TO 09','10 TO 12', '13 TO 15', 
        '16 TO 18', '19 TO 21', '22 TO 24', '25 TO 27', '28 TO 30', '31 TO 33',
        '34 TO 36', '37 TO 39', '40 TO 42', '43 TO 45', '46 TO 48', '49 TO 51']
@@ -251,7 +252,7 @@ elif page == "Predict HDB Pricing (Under Construction)":
     flat_type = types.index(flat_type) + 1
     flat_model = st.selectbox("Select Flat Model", models)
     floor_area_sqm = st.number_input("Select Floor Area", min_value = 0.0, max_value=300.0 , value = 52.23)
-    remaining_lease = st.number_input("Remaining Lease", min_value = 99, max_value = 99, value = 99)
+    remaining_lease = st.number_input("Remaining Lease", min_value = 99, max_value = 99, value = 99) * 12
     storeys = ['01 TO 03', '04 TO 06', '07 TO 09','10 TO 12', '13 TO 15', 
        '16 TO 18', '19 TO 21', '22 TO 24', '25 TO 27', '28 TO 30', '31 TO 33',
        '34 TO 36', '37 TO 39', '40 TO 42', '43 TO 45', '46 TO 48', '49 TO 51']

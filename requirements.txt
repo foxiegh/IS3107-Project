@@ -7,3 +7,6 @@ requests
 seaborn
 matplotlib
 datetime
+joblib
+torch
+sklearn
