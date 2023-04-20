@@ -99,15 +99,15 @@ def predict_construction(floor_area_sqm, remaining_lease, distance_to_nearest_mr
     # print(con_X_bin.shape)
 
     model = NumericalPredictionConstruction(a2=32, c=16)
-    model.load_state_dict(torch.load(file_dir+'/construction-a2-32-c-16.pt'))
+    model.load_state_dict(torch.load(BytesIO(requests.get(file_dir + '/construction-a2-32-c-16.pt').content)))
     pred = model(con_X_num, con_X_bin).detach().numpy()
     return pd.DataFrame(pred.reshape([-1,1]), columns=["resale_price"])
 
-predict_construction(flat_type=2, flat_model="Improved", 
-        floor_area_sqm=44.0, remaining_lease=736, storey_range=4, 
-        latitude=1.362005, longitude=103.853882, nearest_mrt="NS16",
-        distance_to_nearest_mrt=0.999941, resale_days_since_2017=0, normalizer=construction_normalizer, 
-        model=construction_model, cols_in_order=construction_cols_in_order, file_dir=file_dir, multi_pred=False)
+# predict_construction(flat_type=2, flat_model="Improved", 
+#         floor_area_sqm=44.0, remaining_lease=736, storey_range=4, 
+#         latitude=1.362005, longitude=103.853882, nearest_mrt="NS16",
+#         distance_to_nearest_mrt=0.999941, resale_days_since_2017=0, normalizer=construction_normalizer, 
+#         model=construction_model, cols_in_order=construction_cols_in_order, file_dir=file_dir, multi_pred=False)
 
 # predict_construction(flat_type=3, flat_model="New Generation", 
 #                         floor_area_sqm=68.0, remaining_lease=744, storey_range=2, 
