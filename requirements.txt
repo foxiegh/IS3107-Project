@@ -7,4 +7,3 @@ requests
 seaborn
 matplotlib
 datetime
-random
