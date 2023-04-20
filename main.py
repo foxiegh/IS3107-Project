@@ -79,6 +79,7 @@ data = load(f'{ddir}/closest_mrt_df.csv') ## Read from MySQL instead ##
 data = bar(data)
 mrt_data = load(f'{ddir}/mrtdf.csv')
 construction_data = load(f'{ddir}/under_construction_removed_duplicates.csv')
+mrt_names_data = load(f'{ddir}/Station_Codes.csv')
 
 #Start of Pages
 st.title("IS3107 Resale Housing Pricing Visualisation and ML Modelling")
@@ -167,7 +168,13 @@ elif page == "Predict HDB Pricing (Resale)":
             if distance < least_dist:
                 least_dist = distance
                 closest_mrt = row[1]
-        st.write(f'Closest MRT: {closest_mrt}')
+        closest_mrt_name = ""
+        for index, row in mrt_names_data.iterrows():
+            mrt_code = row[0]
+            mrt_name = row[1]
+            if mrt_code == nearest_mrt:
+                closest_mrt_name = mrt_name
+        st.write(f'Closest MRT: {closest_mrt} {closest_mrt_name}')
         st.write(f'Distance to nearest MRT: {round(least_dist, 2)}km')
         datenow = date.today() - date(2017,1,1)
     
