@@ -2,10 +2,10 @@
 ML Modelling and Data Visualisation
 
 By: 
-Chan Ming Jun Marcus
-Chow Yee Sen
-Gao Heng
-Hom Lim Jun How
+Chan Ming Jun Marcus,
+Chow Yee Sen,
+Gao Heng,
+Hom Lim Jun How,
 Soh Kian How Justin
 
 Predicting HDB Resale Prices/HDB Under Construction Prices
