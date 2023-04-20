@@ -51,7 +51,7 @@ construction_model = NumericalPredictionConstruction(a2=32, c=16)
 construction_model.load_state_dict(torch.load(BytesIO(requests.get(file_dir + '/construction-a2-32-c-16.pt').content)))
 
 f = requests.get(file_dir+"/construction_cols.txt")
-construction_cols_in_order = json.loads(f.read())["columns"]
+construction_cols_in_order = f.json()["columns"]
 
 
 def predict_construction(floor_area_sqm, remaining_lease, distance_to_nearest_mrt, 

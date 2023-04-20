@@ -49,7 +49,7 @@ resale_model = NumericalPredictionResale(a2=32, c=16)
 resale_model.load_state_dict(torch.load(BytesIO(requests.get(file_dir + '/resale-a2-32-c-16.pt').content)))
 
 f = requests.get(file_dir+"/resale_cols.txt")
-resale_cols_in_order = json.loads(f.read())["columns"]
+resale_cols_in_order = f.json()["columns"]
 
 def predict_resale(town, flat_type, flat_model, 
                          floor_area_sqm, remaining_lease, storey_range, latitude, longitude, 
