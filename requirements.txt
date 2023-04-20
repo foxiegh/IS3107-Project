@@ -9,4 +9,4 @@ matplotlib
 datetime
 joblib
 torch
-sklearn
+scikit-learn
