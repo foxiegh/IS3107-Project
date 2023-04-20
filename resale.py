@@ -34,7 +34,7 @@ class NumericalPredictionResale(nn.Module):
         final_outputs = self.output_layer(concatenated_outputs)
         return final_outputs
 
-file_dir = f"https://raw.githubusercontent.com/foxiegh/IS3107-Project/main/ML-prediction" # Define file directory
+file_dir = r"https://raw.githubusercontent.com/foxiegh/IS3107-Project/main/ML-prediction" # Define file directory
 resale_num_cols = ['flat_type', 'floor_area_sqm','remaining_lease', 'storey_range','latitude', 
                 'longitude', 'distance_to_nearest_mrt', 'resale_days_since_2017',
                 "number_sold_around_same_mrt_for_month"]
