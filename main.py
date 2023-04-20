@@ -17,7 +17,7 @@ import random
 import json
 
 ddir = f'https://github.com/foxiegh/IS3107-Project/raw/main' #Replace with your directory
-ml_pred = f'{ddir}/ML-prediction' 
+ml_pred = f'https://github.com/foxiegh/IS3107-Project/blob/main/ML-prediction'
 
 
 @st.cache_data
