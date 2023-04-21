@@ -48,8 +48,7 @@ with DAG(
 ) as dag:
     
     def getEngine():
-        # engine = create_engine("mysql+mysqldb://wsl_root:password@192.168.192.1:3306/hdb")
-        engine = create_engine("mysql+mysqldb://wsl_root:password@172.20.224.1:3306/hdb")
+        engine = create_engine("mysql+mysqldb://root:password@172.20.xxx.x:3306/hdb")
 
         return engine
 
@@ -110,9 +109,6 @@ with DAG(
         construction_X.to_sql("construction_x", getEngine(), if_exists = 'replace', index=False)
         resale_X.to_sql("resale_x", getEngine(), if_exists = 'replace', index=False)
         y.to_sql("y", getEngine(), if_exists = 'replace', index=False)
-        # ti.xcom_push('construction_X', construction_X)
-        # ti.xcom_push('resale_X', resale_X)
-        # ti.xcom.push('y', y)
 
         # Encode construction_X
         for category in ["flat_model", "nearest_mrt"]:
