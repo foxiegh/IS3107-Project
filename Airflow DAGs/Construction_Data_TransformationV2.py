@@ -25,7 +25,7 @@ with DAG(
 ) as dag:
     
     def getEngine():
-        engine = create_engine("mysql+mysqldb://wsl_root:password@172.20.224.1:3306/hdb")
+        engine = create_engine("mysql+mysqldb://wsl_root:password@172.20.xxx.x:3306/hdb")
 
         return engine
 
