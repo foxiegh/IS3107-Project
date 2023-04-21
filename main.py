@@ -46,8 +46,6 @@ def check_password():
         return True
 
 if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
 
     ddir = r"https://raw.githubusercontent.com/foxiegh/IS3107-Project/main/" #Replace with your directory
     ml_pred = r"https://raw.githubusercontent.com/foxiegh/IS3107-Project/main/ML-prediction"
