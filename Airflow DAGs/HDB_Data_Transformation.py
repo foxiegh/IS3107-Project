@@ -36,7 +36,7 @@ with DAG(
 
 
     def getEngine():
-        engine = create_engine("mysql+mysqldb://wsl_root:password@192.168.192.1:3306/hdb")
+        engine = create_engine("mysql+mysqldb://root:password@192.168.xxx.x:3306/hdb")
         return engine
     
 
@@ -51,7 +51,7 @@ with DAG(
         df_new = pd.DataFrame(data['result']['records'])
         
         # Check if new data is available
-        engine = create_engine("mysql+mysqldb://wsl_root:password@192.168.192.1:3306/hdb")
+        engine = create_engine("mysql+mysqldb://root:password@192.168.xxx.x:3306/hdb")
         inspector = inspect(engine)
         if 'raw' not in inspector.get_table_names():
             print('no raw')
@@ -207,7 +207,6 @@ with DAG(
         task_id='do_last_task',
         python_callable=last_task,
         trigger_rule='one_success'
-        # trigger_rule="none_failed"
     )
 
     get_new_data_task >> get_raw_data_task
