@@ -97,9 +97,9 @@ if check_password():
         st.write(data.head())
         st.header("Data Description")
         st.write(data.describe())
-        numeric_col = ["floor_area_sqm", "resale_price", "lease_commence_date", "remaining_lease",\
-                        "distance_to_nearest_mrt"] #resale_days_since_2017, "number_sold_in_same_town_month"
-        correlation = data[numeric_col].corr()
+        numeric_col = ["floor_area_sqm", "resale_price", "lease_commence_date"] #"remaining_lease",\
+                       # "distance_to_nearest_mrt"] #resale_days_since_2017, "number_sold_in_same_town_month"
+        correlation = data[numeric_col].corr(numeric_only = True)
         fig, ax = plt.subplots()
         sns.heatmap(correlation,annot=True, ax=ax)
         st.header("Data Correlation")
