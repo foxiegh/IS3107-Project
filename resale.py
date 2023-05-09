@@ -95,9 +95,3 @@ def predict_resale(town, flat_type, flat_model,
 
     pred = model(con_X_num, con_X_bin).detach().numpy()
     return pd.DataFrame(pred.reshape([-1,1]), columns=["resale_price"])
-
-print(predict_resale(town="ANG MO KIO", flat_type=2, flat_model="Improved", 
-               floor_area_sqm=44.0, remaining_lease=736, storey_range=4, 
-               latitude=1.362005, longitude=103.853882, nearest_mrt="NS16",
-               distance_to_nearest_mrt=0.999941, resale_days_since_2017=0, 
-               number_sold_around_same_mrt_for_month=34, normalizer=resale_normalizer, model=resale_model, file_dir=file_dir, cols_in_order=resale_cols_in_order))
